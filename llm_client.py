@@ -3,8 +3,8 @@ import os
 import streamlit as st
 from huggingface_hub import InferenceClient
 
-# 100% open, ungated free model on HF Inference API
-MODEL_ID = "Qwen/Qwen2.5-7B-Instruct"
+# Hugging Face's official permanently-supported free serverless model
+MODEL_ID = "HuggingFaceH4/zephyr-7b-beta"
 
 def get_token() -> str:
     if hasattr(st, "secrets") and "HF_TOKEN" in st.secrets:
