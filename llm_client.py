@@ -11,6 +11,7 @@ CANDIDATE_MODELS = [
     "mixtral-8x7b-32768",
     "llama-3.2-3b-preview",
     "llama3-8b-8192"
+    "openai/gpt-oss-120b"
 ]
 
 def get_groq_client():
