@@ -1,5 +1,5 @@
 streamlit
-huggingface_hub
+groq
 fastembed
 hnswlib
 numpy
