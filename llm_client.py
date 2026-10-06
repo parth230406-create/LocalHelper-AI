@@ -3,10 +3,10 @@ import os
 import streamlit as st
 from huggingface_hub import InferenceClient
 
-MODEL_ID = "meta-llama/Llama-3.2-3B-Instruct"
+# 100% open, ungated free model on HF Inference API
+MODEL_ID = "Qwen/Qwen2.5-7B-Instruct"
 
 def get_token() -> str:
-    # Check Streamlit Cloud Secrets first, then local environment
     if hasattr(st, "secrets") and "HF_TOKEN" in st.secrets:
         return st.secrets["HF_TOKEN"]
     return os.environ.get("HF_TOKEN", "")
@@ -14,7 +14,7 @@ def get_token() -> str:
 def chat_stream(messages: list[dict], temperature: float = 0.4, max_tokens: int = 800):
     token = get_token()
     if not token:
-        yield "\n\n⚠️ **HF_TOKEN missing:** Please add your `HF_TOKEN` in the Streamlit Cloud App Settings (Secrets)."
+        yield "\n\n⚠️ **HF_TOKEN missing:** Please add your `HF_TOKEN` in Streamlit Cloud App Settings (Secrets)."
         return
 
     try:
